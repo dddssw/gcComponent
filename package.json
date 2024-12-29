@@ -15,7 +15,8 @@
   "dependencies": {
     "@gc/components": "workspace:*",
     "@gc/theme-chalk": "workspace:*",
-    "@gc/utils": "workspace:*"
+    "@gc/utils": "workspace:*",
+    "@gc/hooks": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

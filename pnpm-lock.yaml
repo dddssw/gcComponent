@@ -11,6 +11,9 @@ importers:
       '@gc/components':
         specifier: workspace:*
         version: link:packages/components
+      '@gc/hooks':
+        specifier: workspace:*
+        version: link:packages/hooks
       '@gc/theme-chalk':
         specifier: workspace:*
         version: link:packages/theme-chalk
@@ -44,6 +47,12 @@ importers:
     devDependencies:
       vue:
         specifier: ^3.2.37
+        version: 3.5.13(typescript@5.7.2)
+
+  packages/hooks:
+    dependencies:
+      vue:
+        specifier: ^3.2.0
         version: 3.5.13(typescript@5.7.2)
 
   packages/theme-chalk: {}

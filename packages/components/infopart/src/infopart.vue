@@ -30,6 +30,8 @@ import { useSlots, ref } from 'vue';
 const { title, secTitle, needMargin } = withDefaults(defineProps<{ title: string, secTitle?: string[], needMargin?: boolean }>(), {
     needMargin: true,
 })
+import { useNamespace } from '@gc/hooks'
+const bem = useNamespace('infopart')
 // const { title, secTitle, needMargin } = defineProps<{ title: string,secTitle?:string[],needMargin:boolean }>()
 const slots = useSlots()
 const secData = ref<string[]>([])
