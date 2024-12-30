@@ -1,2 +1,3 @@
 import { GcInfopart } from "@gc/components/infopart";
-export default [GcInfopart];
+import { GcTime } from "@gc/components/time";
+export default [GcInfopart,GcTime];

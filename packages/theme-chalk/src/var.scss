@@ -1,0 +1,4 @@
+@use 'mixins/var' as *;
+:root {
+  @include set-css-var-value('color-white', '#fff');
+}

@@ -6,6 +6,7 @@ import { rollup } from "rollup";
 import vue from "@vitejs/plugin-vue";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import esbuild from "rollup-plugin-esbuild";
+import scss from 'rollup-plugin-scss'; // 导入 SCSS 插件
 
 const __filenameNew = fileURLToPath(import.meta.url);
 const __dirnameNew = dirname(__filenameNew);
@@ -27,18 +28,22 @@ const buildFullEntry = async () => {
     input: resolve(epRoot, "index.ts"), // 配置入口文件
     plugins: [
       // 配置插件
-      vue(),
+      // vue(),
       nodeResolve({
         extensions: [".ts"],
       }),
-        VueMacros({
-       plugins: {
-        vue: vue(),
+      VueMacros({
+        plugins: {
+          vue: vue(),
         },
       }),
       replace({
         "process.env.NODE_ENV": '"production"',
         preventAssignment: true, // 这个选项用于防止在字符串后面紧跟一个等号时进行替换。可以用于避免错误的赋值操作
+      }),
+      scss({
+        output: resolve(epOutput, "dist", "styles.css"), // 输出一个 CSS 文件
+        sourceMap: true, // 启用 Source Map 便于调试
       }),
       esbuild(),
     ],
@@ -52,6 +57,7 @@ const buildFullEntry = async () => {
     name: "gc",
     globals: {
       vue: "Vue",
+      "element-plus": "ElementPlus",
     },
   });
 };

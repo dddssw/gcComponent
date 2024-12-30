@@ -12,6 +12,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <GcInfopart title="Mingz1"></GcInfopart>
 </template>
 
 <style scoped>

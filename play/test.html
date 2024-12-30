@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浏览器引用组件库包</title>
+      <link href="../dist/gc/dist/assets/output-C03X-qWt.css" rel="stylesheet"></link>
+      <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+  </head>
+  <body>
+    <div id="app">
+        <gc-infopart title="123"></gc-infopart>
+        <gc-time></gc-time>
+        <el-data-pick />
+      {{ message }}
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../dist/gc/dist/index.full.js"></script>
+      <script src="//unpkg.com/element-plus"></script>
+  
+    <script>
+      const { createApp, ref } = Vue;
+      const App = {
+        setup() {
+          const message = ref("浏览器引用组件库包");
+          return {
+            message,
+          };
+        },
+      };
+      const app = Vue.createApp(App);
+      app.use(gc);
+      app.use(ElementPlus);
+      app.mount("#app");
+      console.log(app._context.components);
+    </script>
+  </body>
+</html>
