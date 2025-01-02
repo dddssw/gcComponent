@@ -12,8 +12,8 @@
     <div id="app">
         <gc-infopart title="123"></gc-infopart>
         <gc-time></gc-time>
-        <el-data-pick />
-      {{ message }}
+        <el-date-picker />
+
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../dist/gc/dist/index.full.js"></script>
@@ -30,8 +30,8 @@
         },
       };
       const app = Vue.createApp(App);
-      app.use(gc);
       app.use(ElementPlus);
+      app.use(gc);
       app.mount("#app");
       console.log(app._context.components);
     </script>

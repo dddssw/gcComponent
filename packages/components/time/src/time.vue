@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ElDataPicker} from 'element-plus'
+import {ElDatePicker} from 'element-plus'
 // 时间处理工具
 const COMPONENT_NAME = 'GcTime'
 defineOptions({

@@ -62,6 +62,7 @@ const buildModules = async () => {
     ],
     // 排除不进行打包的 npm 包，例如 Vue，以便减少包的体积
     external: [
+      "element-plus",
       "vue",
       "@vue/shared",
       "@element-plus/icons-vue",

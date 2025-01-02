@@ -20,5 +20,8 @@
     "rollup-plugin-scss": "^4.0.1",
     "sass": "^1.83.0",
     "unplugin-vue-macros": "^2.13.6"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2"
   }
 }

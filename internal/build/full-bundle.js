@@ -5,8 +5,10 @@ import VueMacros from 'unplugin-vue-macros/rollup'
 import { rollup } from "rollup";
 import vue from "@vitejs/plugin-vue";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
+import change from "@rollup/plugin-node-resolve";
 import esbuild from "rollup-plugin-esbuild";
 import scss from 'rollup-plugin-scss'; // 导入 SCSS 插件
+import commonjs from "@rollup/plugin-commonjs";
 
 const __filenameNew = fileURLToPath(import.meta.url);
 const __dirnameNew = dirname(__filenameNew);
@@ -29,6 +31,14 @@ const buildFullEntry = async () => {
     plugins: [
       // 配置插件
       // vue(),
+      commonjs({
+        // 确保在 CommonJS 模块中正确转换
+        include: "node_modules/**",
+      }),
+      change({
+        // 允许 Rollup 解析 node_modules 中的 ES 模块
+        mainFields: ["module", "main", "exports"],
+      }),
       nodeResolve({
         extensions: [".ts"],
       }),
@@ -48,7 +58,7 @@ const buildFullEntry = async () => {
       esbuild(),
     ],
     // 排除不进行打包的 npm 包，例如 Vue，以便减少包的体积
-    external: ["vue"],
+    external: ["vue", "element-plus"],
   });
   // 配置输出文件格式
   bundle.write({
